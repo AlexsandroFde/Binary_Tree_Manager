@@ -1,8 +1,8 @@
 import '../node.dart';
 
-void printNode(Node? node, int nivel, String prefixo) {
+void printNode(Node? node, String prefixo) {
   if (node == null) return;
-  printNode(node.dir, nivel + 1, "$prefixo    |");
+  printNode(node.dir, "$prefixo    |");
   print(prefixo + "---" + "[${node.dado.toString()}]");
-  printNode(node.esq, nivel + 1, "$prefixo    |");
+  printNode(node.esq, "$prefixo    |");
 }

@@ -26,6 +26,6 @@ class Tree {
   }
 
   void print_node() {
-    printNode(raiz, 0, "");
+    printNode(raiz, "");
   }
 }
