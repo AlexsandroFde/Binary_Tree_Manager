@@ -3,7 +3,6 @@ import 'operations/input_output.dart';
 
 void userInterface() {
   Tree tree = Tree();
-  String coordenadasNo = "";
 
   clearConsole();
 
@@ -13,8 +12,6 @@ void userInterface() {
     print("2. Remover valor");
     print("3. Buscar nó");
     print("4. Sair");
-    coordenadasNo.isNotEmpty ? print(coordenadasNo) : null;
-    coordenadasNo = "";
     treeInterface(tree);
 
     var choice = promptInt("Escolha uma opção: ");
@@ -68,17 +65,29 @@ void userInterface() {
         clearConsole();
         print(">=~~=< Buscar nó >=~~=<");
         treeInterface(tree);
-        var value = promptInt("Digite o valor do nó a ser buscado: ");
-        var coordenadas = tree.find_node(value);
-        clearConsole();
-        if (coordenadas != null) {
-          coordenadasNo = "O nó com valor $value" +
-              (coordenadas.isEmpty
-                  ? " é a raiz"
-                  : " foi encontrado nas coordenadas: $coordenadas (0 = esq, 1 = dir)");
-        } else {
-          coordenadasNo = "O nó com valor $value não foi encontrado na árvore";
-        }
+        do{
+          var input =
+              prompt("Digite o valor do nó a ser buscado ('q' para parar): ");
+          clearConsole();
+          if (input.toLowerCase() == 'q') break;
+          var value = int.tryParse(input);
+          if (value == null) {
+            print("Por favor, insira um número válido ou 'q' para parar\n");
+            continue;
+          }
+          var coordenadas = tree.find_node(value);
+          clearConsole();
+          print(">=~~=< Buscar nó >=~~=<");
+          if (coordenadas != null) {
+            print("O nó com valor $value" +
+                (coordenadas.isEmpty
+                    ? " é a raiz"
+                    : " foi encontrado nas coordenadas: $coordenadas (0 = esq, 1 = dir)"));
+          } else {
+            print("O nó com valor $value não foi encontrado na árvore");
+          }
+          treeInterface(tree);
+        } while (true);
         break;
       case 4:
         clearConsole();
