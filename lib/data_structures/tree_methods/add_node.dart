@@ -1,17 +1,13 @@
-  import '../node.dart';
+import '../node.dart';
 
-void addNode(Node node, int d) {
-  if (d <= node.dado) {
-    if (node.esq == null) {
-      node.esq = Node(dado: d);
-    } else {
-      addNode(node.esq!, d);
-    }
-  } else {
-    if (node.dir == null) {
-      node.dir = Node(dado: d);
-    } else {
-      addNode(node.dir!, d);
-    }
+Node? addNode(Node? node, int d) {
+  if (node == null) return Node(dado: d);
+
+  if (d < node.dado) {
+    node.esq = addNode(node.esq, d);
+  } else if (d > node.dado) {
+    node.dir = addNode(node.dir, d);
   }
+
+  return node;
 }

@@ -26,7 +26,7 @@ void clearConsole() {
 }
 
 void treeInterface(Tree tree) {
-  if (tree.raiz.dado != 0) {
+  if (tree.raiz?.dado != null) {
     tree.print_node();
     print("Altura da árvore: ${tree.tree_height()}");
   }

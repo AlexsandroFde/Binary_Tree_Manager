@@ -54,7 +54,7 @@ void userInterface() {
             print("Por favor, insira um número válido ou 'q' para parar\n");
             continue;
           }
-          // função de reomoção
+          //função de remoção
           print(">=~~=< Remover valor >=~~=<");
           print("$value removido com sucesso");
           treeInterface(tree);

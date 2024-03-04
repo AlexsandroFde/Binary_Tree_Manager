@@ -5,14 +5,10 @@ import 'tree_methods/print_node.dart';
 import 'tree_methods/tree_hight.dart';
 
 class Tree {
-  Node raiz = Node(dado: 0);
+  Node? raiz = null;
 
   void add_node(int d) {
-    if (raiz.dado == 0) {
-      raiz = Node(dado: d);
-    } else {
-      addNode(raiz, d);
-    }
+    raiz = addNode(raiz, d);
   }
 
   int tree_height() {
@@ -20,9 +16,7 @@ class Tree {
   }
 
   String? find_node(int d) {
-    if (raiz.dado == d) return "";
-    String? coordenadas = findNode(raiz, d);
-    return coordenadas;
+    return findNode(raiz, d);
   }
 
   void print_node() {
