@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'data_structures/tree.dart';
 import 'operations/input_output.dart';
 
@@ -24,13 +26,17 @@ void userInterface() {
         do {
           var input =
               prompt("Digite o valor a ser adicionado ('q' para parar): ");
-          clearConsole();
-          if (input.toLowerCase() == 'q') break;
+          if (input.toLowerCase() == 'q') {
+            clearConsole();
+            break;
+          }
           var value = int.tryParse(input);
           if (value == null) {
-            print("Por favor, insira um número válido ou 'q' para parar\n");
+            stdout.write('\x1B[1F\x1B[2K\x1B[1F\x1B[2K');
+            print("Por favor, insira um número válido ou 'q' para parar");
             continue;
           }
+          clearConsole();
           tree.add_node(value);
           print(">=~~=< Adicionar valor >=~~=<");
           print("$value adicionado com sucesso");
@@ -44,11 +50,14 @@ void userInterface() {
         do {
           var input =
               prompt("Digite o valor a ser removido ('q' para parar): ");
-          clearConsole();
-          if (input.toLowerCase() == 'q') break;
+          if (input.toLowerCase() == 'q') {
+            clearConsole();
+            break;
+          }
           var value = int.tryParse(input);
           if (value == null) {
-            print("Por favor, insira um número válido ou 'q' para parar\n");
+            stdout.write('\x1B[1F\x1B[2K\x1B[1F\x1B[2K');
+            print("Por favor, insira um número válido ou 'q' para parar");
             continue;
           }
           if (tree.remove_node(value)) {
@@ -56,6 +65,7 @@ void userInterface() {
           } else {
             print("Valor $value não encontrado na árvore\n");
           }
+          clearConsole();
           print(">=~~=< Remover valor >=~~=<");
           print("$value removido com sucesso");
           treeInterface(tree);
@@ -65,14 +75,17 @@ void userInterface() {
         clearConsole();
         print(">=~~=< Buscar nó >=~~=<");
         treeInterface(tree);
-        do{
+        do {
           var input =
               prompt("Digite o valor do nó a ser buscado ('q' para parar): ");
-          clearConsole();
-          if (input.toLowerCase() == 'q') break;
+          if (input.toLowerCase() == 'q') {
+            clearConsole();
+            break;
+          }
           var value = int.tryParse(input);
           if (value == null) {
-            print("Por favor, insira um número válido ou 'q' para parar\n");
+            stdout.write('\x1B[1F\x1B[2K\x1B[1F\x1B[2K');
+            print("Por favor, insira um número válido ou 'q' para parar");
             continue;
           }
           var coordenadas = tree.find_node(value);

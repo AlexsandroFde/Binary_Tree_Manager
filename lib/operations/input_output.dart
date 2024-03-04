@@ -12,6 +12,7 @@ int promptInt(String promptText) {
     try {
       return int.parse(prompt(promptText));
     } catch (_) {
+      stdout.write('\x1B[1F\x1B[2K\x1B[1F\x1B[2K');
       print("Por favor, insira um número válido");
     }
   }
@@ -30,5 +31,5 @@ void treeInterface(Tree tree) {
     tree.print_node();
     print("Altura da árvore: ${tree.tree_height()}");
   }
-  print("==================");
+  print("==================\n");
 }
