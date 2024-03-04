@@ -54,7 +54,11 @@ void userInterface() {
             print("Por favor, insira um número válido ou 'q' para parar\n");
             continue;
           }
-          //função de remoção
+          if (tree.remove_node(value)) {
+            print("Valor $value removido com sucesso\n");
+          } else {
+            print("Valor $value não encontrado na árvore\n");
+          }
           print(">=~~=< Remover valor >=~~=<");
           print("$value removido com sucesso");
           treeInterface(tree);

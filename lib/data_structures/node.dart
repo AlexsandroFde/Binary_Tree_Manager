@@ -5,3 +5,9 @@ class Node {
   Node? dir;
   int dado;
 }
+
+class NodeAux {
+  NodeAux({this.node});
+  
+  Node? node;
+}

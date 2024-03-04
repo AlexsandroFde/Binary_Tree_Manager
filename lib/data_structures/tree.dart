@@ -2,6 +2,7 @@ import 'node.dart';
 import 'tree_methods/add_node.dart';
 import 'tree_methods/find_node.dart';
 import 'tree_methods/print_node.dart';
+import 'tree_methods/remove_node.dart';
 import 'tree_methods/tree_hight.dart';
 
 class Tree {
@@ -21,5 +22,14 @@ class Tree {
 
   void print_node() {
     printNode(raiz, "");
+  }
+
+  bool remove_node(int d) {
+    var removeResult = removeNode(raiz, d);
+    if (removeResult != null) {
+      raiz = removeResult.node;
+      return true;
+    }
+    return false;
   }
 }
