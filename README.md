@@ -3,6 +3,7 @@
 Este é um programa em Dart que permite gerenciar uma árvore binária. Ele oferece várias funcionalidades, incluindo:
 
 - Adicionar valores à árvore
+- Remover valores da árvore
 - Imprimir a árvore
 - Buscar um nó na árvore
 
@@ -21,6 +22,9 @@ Este é um programa em Dart que permite gerenciar uma árvore binária. Ele ofer
 
 - **Adicionar Valor:**
   - Permite adicionar um valor à árvore binária.
+
+- **Remover Valor:**
+  - Permite remover um valor específico da árvore binária.
 
 - **Imprimir Árvore:**
   - Imprime a estrutura da árvore binária.
